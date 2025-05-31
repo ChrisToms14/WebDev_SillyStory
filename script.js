@@ -71,25 +71,23 @@ function generateStory() {
   const reaction = randomValueFromArray(reactions);
   const template = randomValueFromArray(storyTemplates);
   
-  // Start with the template
   let newStory = template;
   
-  // Replace placeholders
+
   newStory = newStory.replace(':character:', character);
   newStory = newStory.replace(':place:', place);
   newStory = newStory.replace(':event:', event);
   newStory = newStory.replace(':reaction:', reaction);
-  
-  // Replace name
+
   const name = customName.value.trim() !== '' ? customName.value.trim() : 'Alex';
   newStory = newStory.replace(':name:', name);
   
-  // Display the story
+
   story.textContent = newStory;
   story.classList.add('visible');
 }
 
-// Generate a story when Enter is pressed in the name input
+
 customName.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
     generateStory();
